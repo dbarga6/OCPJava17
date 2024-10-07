@@ -1,7 +1,8 @@
 package es.dba.ocpJava17;
 
 import es.dba.ocpJava17.basicos.JavaBasics;
-import es.dba.ocpJava17.imp.jdbc.UsersJdbc;
+import es.dba.ocpJava17.imp.jdbc.ConexionBaseDeDatosH2;
+import es.dba.ocpJava17.imp.srv.UserSrvImp;
 
 public class OCPJava17 {
 
@@ -9,6 +10,7 @@ public class OCPJava17 {
 		System.out.println("Clase principal");
         llamadaClaseA();
         consultaUsuarios();
+        ConexionBaseDeDatosH2.cerrarConexion();
 	}
 	
 	private static void llamadaClaseA() {
@@ -17,8 +19,8 @@ public class OCPJava17 {
 	}
 	
 	private static void consultaUsuarios() {
-		UsersJdbc userJdbc = new UsersJdbc();
-		userJdbc.ejecutarConsulta();
+		UserSrvImp userSrv = new UserSrvImp();
+		userSrv.obtenerUsuario();
 	}
 
 }
